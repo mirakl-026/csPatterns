@@ -5,6 +5,7 @@ using Creation.FactoryMethod;
 using Creation.AbstractFactory;
 using Creation.Singleton;
 using Creation.Prototype;
+using Creation.Builder;
 
 class Program
 {
@@ -39,16 +40,35 @@ class Program
 
         #region Prototype
 
-        IFigure figure = new Rectangle(30, 40);
-        IFigure clonedFigure = figure.Clone();
-        figure.GetInfo();
-        clonedFigure.GetInfo();
+        //IFigure figure = new Rectangle(30, 40);
+        //IFigure clonedFigure = figure.Clone();
+        //figure.GetInfo();
+        //clonedFigure.GetInfo();
 
-        figure = new Circle(30);
-        clonedFigure = figure.Clone();
-        figure.GetInfo();
-        clonedFigure.GetInfo();
+        //figure = new Circle(30);
+        //clonedFigure = figure.Clone();
+        //figure.GetInfo();
+        //clonedFigure.GetInfo();
 
+
+        #endregion
+
+        #region Builder
+
+        // содаем объект пекаря
+        Baker baker = new Baker();
+
+        // создаем билдер для ржаного хлеба
+        BreadBuilder builder = new RyeBreadBuilder();
+
+        // выпекаем
+        Bread ryeBread = baker.Bake(builder);
+        Console.WriteLine(ryeBread.ToString());
+
+        // оздаем билдер для пшеничного хлеба
+        builder = new WheatBreadBuilder();
+        Bread wheatBread = baker.Bake(builder);
+        Console.WriteLine(wheatBread.ToString());
 
         #endregion
     }
