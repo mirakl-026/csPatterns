@@ -14,16 +14,20 @@ class Program
         #endregion
 
         #region Observer
-        Stock stock = new Stock();
-        Bank bank = new Bank("ЮнитБанк", stock);
-        Broker broker = new Broker("Иван Иваныч", stock);
+        //Stock stock = new Stock();
+        //Bank bank = new Bank("ЮнитБанк", stock);
+        //Broker broker = new Broker("Иван Иваныч", stock);
 
-        // имитация торгов
-        stock.Market();
-        // брокер прекращает наблюдать за торгами
-        broker.StopTrade();
-        // имитация торгов
-        stock.Market();
+        //// имитация торгов
+        //stock.Market();
+        //// брокер прекращает наблюдать за торгами
+        //broker.StopTrade();
+        //// имитация торгов
+        //stock.Market();
+
+        #endregion
+
+        #region Command
 
         #endregion
     }
