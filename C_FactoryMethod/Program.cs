@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Creation.FactoryMethod;
 using Creation.AbstractFactory;
 using Creation.Singleton;
+using Creation.Prototype;
 
 class Program
 {
@@ -29,11 +30,26 @@ class Program
 
         #region Singleton
 
-        Gateway gateway = Gateway.getInstance("North gates");
-        Console.WriteLine(gateway.Name);
+        //Gateway gateway = Gateway.getInstance("North gates");
+        //Console.WriteLine(gateway.Name);
 
-        Gateway gateway1 = Gateway.getInstance("South gates");
-        Console.WriteLine(gateway1.Name);   // same
+        //Gateway gateway1 = Gateway.getInstance("South gates");
+        //Console.WriteLine(gateway1.Name);   // same
+        #endregion
+
+        #region Prototype
+
+        IFigure figure = new Rectangle(30, 40);
+        IFigure clonedFigure = figure.Clone();
+        figure.GetInfo();
+        clonedFigure.GetInfo();
+
+        figure = new Circle(30);
+        clonedFigure = figure.Clone();
+        figure.GetInfo();
+        clonedFigure.GetInfo();
+
+
         #endregion
     }
 }
